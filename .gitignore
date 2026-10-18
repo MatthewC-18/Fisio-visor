@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# Modelo y WASM de MediaPipe: los genera frontend/scripts/setup-models.mjs con versión fija.
+frontend/public/models/
