@@ -1,0 +1,113 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+  line-height: 1.4;
+  --border: #8884;
+  --muted: #888;
+  --error: #d64545;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.app h1 {
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Espejo solo visual: video y lienzo se voltean juntos, así los puntos siguen alineados. */
+.camera {
+  position: relative;
+  transform: scaleX(-1);
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.camera video,
+.camera canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.camera canvas {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.angles {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.angles th,
+.angles td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.angles td {
+  font-size: 1.4rem;
+}
+
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.status.error {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.hint,
+.warning,
+.meta {
+  font-size: 0.9rem;
+}
+
+.warning {
+  color: var(--muted);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  color: var(--muted);
+}
+
+.meta dd {
+  margin: 0;
+}
